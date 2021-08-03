@@ -8,3 +8,4 @@ Changes/addations/removeables made by LakesideMiners
 * Fox.py is my own creation. gets a fox from the [Sheri Bot API](https://sheri.bot/)
 * timetill.py is my own creation. When used, prints how many days until I am 18. If it is less then 7 days, then it will print how many days, hours, minutes and then seconds until I am 18. 
 
+* Translateing some strings to English
