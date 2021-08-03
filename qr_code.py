@@ -26,7 +26,7 @@ class QRtoolsMod(loader.Module):
 			if text and text == ".file":
 				file = True
 			if not reply or not reply.message:
-				await message.edit("<b>Нет текста для кодирования!</b>")
+				await message.edit("<b>No text to encode!</b>")
 				return
 			text = reply.raw_text
 		else:
@@ -50,7 +50,7 @@ class QRtoolsMod(loader.Module):
 			reply = await message.get_reply_message()
 			ok = await check(reply)
 		if not ok:
-			text = "<b>Это не изображение!</b>" if reply else "<b>Нечего не передано!</b>"
+			text = "<b>This is not an image!</b>" if reply else "<b>Nothing transmitted!</b>"
 			await message.edit(text)
 			return
 		file = BytesIO()
@@ -61,7 +61,7 @@ class QRtoolsMod(loader.Module):
 		resp = post(url, files={"file": file.getvalue()})
 		text = resp.json()[0]["symbol"][0]["data"]
 		if not text:
-			text = "<b>Невозможно распознать или QR пуст!<b>"
+			text = "<b>Unrecognizable or QR is empty!<b>"
 		await utils.answer(message, text)
 
 
